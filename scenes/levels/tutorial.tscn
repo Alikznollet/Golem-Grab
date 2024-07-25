@@ -1,9 +1,16 @@
-[gd_scene load_steps=5 format=3 uid="uid://q3fd1hukvba1"]
+[gd_scene load_steps=7 format=3 uid="uid://q3fd1hukvba1"]
 
 [ext_resource type="PackedScene" uid="uid://b2osdpyaa6kfp" path="res://scenes/levels/level.tscn" id="1_xoo7x"]
 [ext_resource type="PackedScene" uid="uid://bk6553ygxicfx" path="res://scenes/player/player.tscn" id="2_0u71d"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="2_s00gj"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="3_qpj6w"]
+[ext_resource type="Script" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="5_5t2hc"]
+
+[sub_resource type="Resource" id="Resource_sn7rh"]
+script = ExtResource("5_5t2hc")
+duration = 1.0
+transition = 0
+ease = 2
 
 [node name="Tutorial" instance=ExtResource("1_xoo7x")]
 
@@ -26,6 +33,7 @@ position = Vector2(124, 135)
 script = ExtResource("3_qpj6w")
 follow_mode = 1
 follow_target = NodePath("../Player")
+tween_resource = SubResource("Resource_sn7rh")
 follow_damping = true
 follow_damping_value = Vector2(0.2, 0.2)
 dead_zone_height = 0.1

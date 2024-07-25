@@ -1,7 +1,12 @@
-[gd_scene load_steps=5 format=3 uid="uid://bk6553ygxicfx"]
+[gd_scene load_steps=10 format=3 uid="uid://bk6553ygxicfx"]
 
 [ext_resource type="Script" path="res://scripts/player/player.gd" id="1_nsgui"]
 [ext_resource type="Texture2D" uid="uid://y3fm44bumwyf" path="res://graphics/player/player_base.png" id="1_xs7pe"]
+[ext_resource type="Script" path="res://scripts/states/FSM.gd" id="3_27cwi"]
+[ext_resource type="Script" path="res://scripts/states/walking.gd" id="4_y1kmo"]
+[ext_resource type="Script" path="res://scripts/states/idle.gd" id="5_v4jup"]
+[ext_resource type="Script" path="res://scripts/states/falling.gd" id="6_51n6y"]
+[ext_resource type="Script" path="res://scripts/states/jumping.gd" id="7_fvnxa"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_7ujsv"]
 animations = [{
@@ -17,9 +22,13 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_43kwd"]
 radius = 5.0
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" groups=["Player"]]
 collision_mask = 15
 script = ExtResource("1_nsgui")
+move_speed = 70.0
+jump_height = 50.0
+jump_time_to_peak = 0.5
+jump_time_to_descent = 0.4
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(1, -3)
@@ -28,3 +37,19 @@ animation = &"empty"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_43kwd")
+
+[node name="FSM" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
+script = ExtResource("3_27cwi")
+initial_state = NodePath("Idle")
+
+[node name="Walking" type="Node" parent="FSM"]
+script = ExtResource("4_y1kmo")
+
+[node name="Idle" type="Node" parent="FSM"]
+script = ExtResource("5_v4jup")
+
+[node name="Falling" type="Node" parent="FSM"]
+script = ExtResource("6_51n6y")
+
+[node name="Jumping" type="Node" parent="FSM"]
+script = ExtResource("7_fvnxa")
