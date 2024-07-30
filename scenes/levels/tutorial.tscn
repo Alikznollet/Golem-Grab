@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://q3fd1hukvba1"]
+[gd_scene load_steps=12 format=3 uid="uid://q3fd1hukvba1"]
 
 [ext_resource type="PackedScene" uid="uid://b2osdpyaa6kfp" path="res://scenes/levels/level.tscn" id="1_xoo7x"]
 [ext_resource type="PackedScene" uid="uid://bk6553ygxicfx" path="res://scenes/player/player.tscn" id="2_0u71d"]
@@ -6,6 +6,24 @@
 [ext_resource type="PackedScene" uid="uid://ujg4jtpr0ohi" path="res://scenes/items/item.tscn" id="3_gd30u"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="3_qpj6w"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="5_5t2hc"]
+
+[sub_resource type="Gradient" id="Gradient_orb85"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(0.321569, 0.580392, 0.462745, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_65116"]
+gradient = SubResource("Gradient_orb85")
+width = 8
+height = 8
+
+[sub_resource type="Gradient" id="Gradient_sfikf"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(1, 0.239216, 0.227451, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_kdwe2"]
+gradient = SubResource("Gradient_sfikf")
+width = 8
+height = 8
 
 [sub_resource type="Resource" id="Resource_3283o"]
 script = ExtResource("5_5t2hc")
@@ -33,9 +51,14 @@ layer_2/tile_data = PackedInt32Array(196609, 65537, 0, 851969, 196609, 1, 851970
 
 [node name="Item" parent="Items" index="0" instance=ExtResource("3_gd30u")]
 position = Vector2(185, 80)
+item_name = "TEST1"
+item_texture = SubResource("GradientTexture2D_65116")
 
 [node name="Item2" parent="Items" index="1" instance=ExtResource("3_gd30u")]
 position = Vector2(95, 64)
+item_name = "TEST2"
+item_id = 1
+item_texture = SubResource("GradientTexture2D_kdwe2")
 
 [node name="Player" parent="." index="3" instance=ExtResource("2_0u71d")]
 position = Vector2(124, 135)

@@ -1,7 +1,6 @@
 extends CharacterBody2D
 class_name Player
 
-# TO DO: make this a component with inventoryfunctions
 @export var inventory: InventoryComponent
 
 @export var move_speed: float
