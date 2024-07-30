@@ -1,9 +1,8 @@
 extends State
 class_name Jumping
 
-func Enter():
+func Enter(_state: State):
 	player.velocity.y = player.jump_velocity
-	print(player.velocity.y)
 
 func Physics_Update(delta: float) -> void:
 	player.velocity.y += player.jump_gravity * delta

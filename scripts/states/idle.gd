@@ -1,7 +1,7 @@
 extends State
 class_name Idle
 
-func Update(delta: float) -> void:
+func Update(_delta: float) -> void:
 	if Input.is_action_pressed("left") or Input.is_action_pressed("right"):
 		Transition.emit(self, "walking")
 		

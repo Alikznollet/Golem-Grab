@@ -11,7 +11,7 @@ func _ready():
 			states[state.name.to_lower()] = state
 			state.Transition.connect(switch_state)
 			
-	initial_state.Enter()
+	initial_state.Enter(initial_state)
 	current_state = initial_state
 	
 func switch_state(old_state: State, new_state: String) -> void:
@@ -20,10 +20,9 @@ func switch_state(old_state: State, new_state: String) -> void:
 		
 	var state: State = states[new_state.to_lower()]
 	if state:
-		state.Enter()
+		state.Enter(old_state)
 		old_state.Exit()
 		current_state = state
-		print(state)
 		
 func _process(delta):
 	if current_state:

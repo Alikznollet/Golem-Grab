@@ -1,7 +1,7 @@
 extends State
 class_name Walking
 
-func Physics_Update(delta: float):
+func Physics_Update(_delta: float):
 	var direction: int
 	if Input.is_action_pressed("left"):
 		direction = -1
