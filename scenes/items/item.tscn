@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://ujg4jtpr0ohi"]
+
+[ext_resource type="Script" path="res://scripts/inventory/items/base_item.gd" id="1_ikha3"]
+
+[sub_resource type="Gradient" id="Gradient_2hgsp"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_mvmxl"]
+gradient = SubResource("Gradient_2hgsp")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f2vue"]
+size = Vector2(22, 22)
+
+[node name="BaseItem" type="Area2D"]
+script = ExtResource("1_ikha3")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.34375, 0.34375)
+texture = SubResource("GradientTexture2D_mvmxl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_f2vue")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bk6553ygxicfx"]
+[gd_scene load_steps=12 format=3 uid="uid://bk6553ygxicfx"]
 
 [ext_resource type="Script" path="res://scripts/player/player.gd" id="1_nsgui"]
 [ext_resource type="Texture2D" uid="uid://y3fm44bumwyf" path="res://graphics/player/player_base.png" id="1_xs7pe"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" path="res://scripts/states/idle.gd" id="5_v4jup"]
 [ext_resource type="Script" path="res://scripts/states/falling.gd" id="6_51n6y"]
 [ext_resource type="Script" path="res://scripts/states/jumping.gd" id="7_fvnxa"]
+[ext_resource type="Script" path="res://scripts/inventory/inventory_component.gd" id="8_osyu1"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_7ujsv"]
 animations = [{
@@ -25,9 +26,10 @@ radius = 5.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3i0eo"]
 size = Vector2(8, 13)
 
-[node name="Player" type="CharacterBody2D" groups=["Player"]]
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("inventory") groups=["Player"]]
 collision_mask = 15
 script = ExtResource("1_nsgui")
+inventory = NodePath("InventoryComponent")
 move_speed = 70.0
 coyote_time = 0.1
 jump_buffer = 0.1
@@ -59,7 +61,11 @@ script = ExtResource("6_51n6y")
 [node name="Jumping" type="Node" parent="FSM"]
 script = ExtResource("7_fvnxa")
 
+[node name="InventoryComponent" type="Node" parent="."]
+script = ExtResource("8_osyu1")
+
 [node name="Detection" type="Area2D" parent="."]
+collision_mask = 16
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Detection"]
 position = Vector2(1, -3)

@@ -1,6 +1,9 @@
 extends CharacterBody2D
 class_name Player
 
+# TO DO: make this a component with inventoryfunctions
+@export var inventory: InventoryComponent
+
 @export var move_speed: float
 
 @export var coyote_time: float
@@ -17,3 +20,12 @@ class_name Player
 func _process(_delta):
 	move_and_slide()
 	
+	if Input.is_action_just_pressed("inventory"):
+		print(inventory.get_items())
+	
+func add_to_inventory(item: InventoryItem):
+	inventory.add_item(item)
+
+func _on_detection_body_shape_entered(body_rid, body, body_shape_index, local_shape_index):
+	# TO DO: respawn system
+	queue_free()
