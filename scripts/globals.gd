@@ -1,4 +1,4 @@
 extends Node
 
-var current_level: PackedScene
+var respawn_position: Vector2
 var inventory: Array[InventoryItem]

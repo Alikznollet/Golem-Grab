@@ -21,6 +21,7 @@ func _ready():
 	if Globals.inventory:
 		inventory.ITEMS = Globals.inventory
 		inventory.emit_signal("slot_changed")
+	Globals.respawn_position = global_position
 
 func _process(_delta):
 	move_and_slide()
@@ -29,5 +30,4 @@ func add_to_inventory(item: InventoryItem):
 	inventory.add_item(item)
 
 func _on_detection_body_shape_entered(_body_rid, _body, _body_shape_index, _local_shape_index):
-	# TO DO: respawn system
-	queue_free()
+	global_position = Globals.respawn_position
