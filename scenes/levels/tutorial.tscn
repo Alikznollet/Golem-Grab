@@ -60,8 +60,15 @@ item_name = "TEST2"
 item_id = 1
 item_texture = SubResource("GradientTexture2D_kdwe2")
 
+[node name="Item3" parent="Items" index="2" instance=ExtResource("3_gd30u")]
+position = Vector2(43, 71)
+item_name = "TEST2"
+item_id = 1
+item_texture = SubResource("GradientTexture2D_kdwe2")
+
 [node name="Player" parent="." index="3" instance=ExtResource("2_0u71d")]
 position = Vector2(124, 135)
+metadata/_edit_lock_ = true
 
 [node name="PhantomCamera2D" type="Node2D" parent="." index="4" node_paths=PackedStringArray("follow_target")]
 position = Vector2(128, 94)

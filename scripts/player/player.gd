@@ -20,7 +20,7 @@ func _process(_delta):
 	move_and_slide()
 	
 	if Input.is_action_just_pressed("inventory"):
-		print(inventory.get_items())
+		print(inventory.ITEMS)
 	
 func add_to_inventory(item: InventoryItem):
 	inventory.add_item(item)

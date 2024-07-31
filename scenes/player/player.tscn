@@ -77,5 +77,5 @@ shape = SubResource("RectangleShape2D_3i0eo")
 [node name="InventoryUI" parent="CanvasLayer" node_paths=PackedStringArray("inventory") instance=ExtResource("9_anpn0")]
 inventory = NodePath("../../InventoryComponent")
 
-[connection signal="item_added" from="InventoryComponent" to="CanvasLayer/InventoryUI" method="_on_inventory_component_item_added"]
+[connection signal="slot_changed" from="InventoryComponent" to="CanvasLayer/InventoryUI" method="_on_inventory_component_slot_changed"]
 [connection signal="body_shape_entered" from="Detection" to="." method="_on_detection_body_shape_entered"]

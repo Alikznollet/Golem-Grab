@@ -7,7 +7,9 @@ var is_open = false
 
 func update_slots():
 	for i in range(min(inventory.ITEMS.size(), slots.size())):
-		slots[i].update(inventory.ITEMS[i])
+		var item: InventoryItem = inventory.ITEMS[i]
+		var amount: int = inventory.AMOUNTS[item.item_id]
+		slots[i].update(inventory.ITEMS[i], amount)
 
 func close():
 	visible = false
@@ -27,5 +29,5 @@ func _process(delta):
 		else:
 			open()
 
-func _on_inventory_component_item_added(item):
+func _on_inventory_component_slot_changed():
 	update_slots()
