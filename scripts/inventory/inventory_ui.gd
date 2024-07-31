@@ -6,10 +6,12 @@ extends Control
 var is_open = false
 
 func update_slots():
-	for i in range(min(inventory.ITEMS.size(), slots.size())):
-		var item: InventoryItem = inventory.ITEMS[i]
-		var amount: int = inventory.AMOUNTS[item.item_id]
-		slots[i].update(inventory.ITEMS[i], amount)
+	for i in range(slots.size()):
+		if i < inventory.ITEMS.size():
+			var item: InventoryItem = inventory.ITEMS[i]
+			slots[i].update(item)
+		else:
+			slots[i].update(null)
 
 func close():
 	visible = false
@@ -21,6 +23,7 @@ func open():
 	
 func _ready():
 	close()
+	update_slots()
 	
 func _process(delta):
 	if Input.is_action_just_pressed("inventory"):

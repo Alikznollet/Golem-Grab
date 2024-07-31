@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://d0ij7xcvlt2ud"]
+
+[ext_resource type="Script" path="res://scenes/objects/door.gd" id="1_ve6tm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8ri71"]
+size = Vector2(34, 42)
+
+[sub_resource type="Gradient" id="Gradient_keqv1"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(1, 0.768627, 0.317647, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_wtf17"]
+gradient = SubResource("Gradient_keqv1")
+
+[node name="Door" type="Area2D"]
+collision_layer = 4
+script = ExtResource("1_ve6tm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_8ri71")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.53125, 0.65625)
+texture = SubResource("GradientTexture2D_wtf17")
+
+[node name="Button" type="Button" parent="."]
+custom_minimum_size = Vector2(16, 16)
+offset_left = -16.0
+offset_top = -58.0
+offset_right = 16.0
+offset_bottom = -27.0
+text = "E"
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

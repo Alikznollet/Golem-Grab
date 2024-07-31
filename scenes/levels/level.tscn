@@ -346,6 +346,8 @@ layer_1/tile_data = PackedInt32Array()
 layer_2/name = "Decorations"
 layer_2/tile_data = PackedInt32Array()
 
+[node name="Objects" type="Node2D" parent="."]
+
 [node name="Items" type="Node2D" parent="."]
 
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
