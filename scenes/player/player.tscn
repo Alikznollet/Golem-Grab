@@ -31,12 +31,13 @@ size = Vector2(8, 13)
 collision_mask = 15
 script = ExtResource("1_nsgui")
 inventory = NodePath("InventoryComponent")
-move_speed = 70.0
+move_speed = 60.0
 coyote_time = 0.1
 jump_buffer = 0.1
-jump_height = 45.0
-jump_time_to_peak = 0.5
-jump_time_to_descent = 0.4
+hover_time = 0.1
+jump_height = 35.0
+jump_time_to_peak = 0.4
+jump_time_to_descent = 0.3
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(1, -3)

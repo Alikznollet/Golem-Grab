@@ -7,6 +7,7 @@ class_name Player
 
 @export var coyote_time: float
 @export var jump_buffer: float
+@export var hover_time: float
 
 @export var jump_height: float
 @export var jump_time_to_peak: float

@@ -16,5 +16,5 @@ func Physics_Update(delta: float) -> void:
 		direction = 0
 	player.velocity.x = player.move_speed * direction
 	
-	if player.velocity.y < 0:
+	if player.velocity.y >= 0:
 		Transition.emit(self, "falling")
