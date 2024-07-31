@@ -4,7 +4,9 @@ extends Node2D
 @export var next_level: PackedScene
 
 @onready var button: Button = $Button
+@onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 var player_in_distance: bool = false
+var opened: bool = false
 var player: Player
 
 func _ready():
@@ -24,7 +26,10 @@ func _on_body_exited(body):
 
 func _process(_delta):
 	if player_in_distance and Input.is_action_just_pressed("interact"):
-		_check_inventory()
+		if !opened:
+			_check_inventory()
+		else:
+			get_tree().change_scene_to_packed(next_level)
 	
 
 func _check_inventory():
@@ -40,7 +45,6 @@ func _check_inventory():
 			
 		player.inventory.emit_signal("slot_changed")
 		Globals.inventory = player.inventory.ITEMS
-			
-		next_level.instantiate()
-		get_tree().change_scene_to_packed(next_level)
 		
+		sprite.play()
+		opened = true

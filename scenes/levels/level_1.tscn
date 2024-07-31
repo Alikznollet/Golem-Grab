@@ -49,6 +49,3 @@ follow_mode = 1
 follow_target = NodePath("../Player")
 tween_resource = SubResource("Resource_86fge")
 draw_limits = true
-
-[node name="DirectionalLight2D" parent="." index="6"]
-metadata/_edit_lock_ = true
