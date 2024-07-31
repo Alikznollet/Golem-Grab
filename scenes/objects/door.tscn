@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://d0ij7xcvlt2ud"]
 
-[ext_resource type="Script" path="res://scenes/objects/door.gd" id="1_ve6tm"]
+[ext_resource type="Script" path="res://scripts/objects/door.gd" id="1_y2ujj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8ri71"]
 size = Vector2(34, 42)
@@ -14,7 +14,7 @@ gradient = SubResource("Gradient_keqv1")
 
 [node name="Door" type="Area2D"]
 collision_layer = 4
-script = ExtResource("1_ve6tm")
+script = ExtResource("1_y2ujj")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_8ri71")

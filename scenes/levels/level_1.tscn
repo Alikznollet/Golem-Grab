@@ -1,15 +1,54 @@
-[gd_scene load_steps=3 format=3 uid="uid://lece37cxtmi"]
+[gd_scene load_steps=8 format=3 uid="uid://lece37cxtmi"]
 
 [ext_resource type="PackedScene" uid="uid://b2osdpyaa6kfp" path="res://scenes/levels/level.tscn" id="1_8oaij"]
-[ext_resource type="PackedScene" uid="uid://bk6553ygxicfx" path="res://scenes/player/player.tscn" id="2_ryh41"]
+[ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="2_6w2n7"]
+[ext_resource type="PackedScene" uid="uid://ujg4jtpr0ohi" path="res://scenes/items/item.tscn" id="2_apoi0"]
+[ext_resource type="Script" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="3_hviq7"]
+
+[sub_resource type="Gradient" id="Gradient_lbbbb"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(0.343563, 0.994127, 0.957815, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_0x4we"]
+gradient = SubResource("Gradient_lbbbb")
+width = 10
+height = 10
+
+[sub_resource type="Resource" id="Resource_86fge"]
+script = ExtResource("3_hviq7")
+duration = 1.0
+transition = 0
+ease = 2
 
 [node name="Level1" instance=ExtResource("1_8oaij")]
 
-[node name="TileMap" parent="." index="0"]
+[node name="Camera2D" parent="." index="0"]
+position = Vector2(172, 138)
+limit_left = -10000000
+limit_top = -10000000
+limit_right = 10000000
+limit_bottom = 10000000
+
+[node name="TileMap" parent="." index="1"]
 layer_0/tile_data = PackedInt32Array(1179657, 65536, 0, 1179658, 65536, 0, 1179659, 65536, 0, 1179660, 65536, 0, 1179661, 65536, 0, 1179662, 65536, 0, 1179663, 65536, 0, 1179664, 65536, 0, 1179665, 65536, 0, 1179666, 65536, 0, 1179667, 65536, 0, 1179668, 65536, 0, 1179669, 65536, 0, 1179670, 65536, 0, 1179671, 65536, 0, 1179672, 65536, 0, 1179673, 65536, 0, 1179674, 65536, 0, 1179675, 65536, 0, 1179676, 65536, 0, 1179677, 65536, 0, 1179678, 65536, 0, 1179679, 65536, 0, 1179680, 65536, 0, 1179681, 65536, 0, 1179682, 65536, 0)
 
-[node name="Player" parent="." index="3" instance=ExtResource("2_ryh41")]
-position = Vector2(166, 130)
+[node name="BaseItem1" parent="Items" index="0" instance=ExtResource("2_apoi0")]
+position = Vector2(107, 107)
+item_name = "TEST4"
+item_id = 3
+item_texture = SubResource("GradientTexture2D_0x4we")
 
-[node name="DirectionalLight2D" parent="." index="4"]
+[node name="Player" parent="." index="4"]
+position = Vector2(172, 138)
+metadata/_edit_lock_ = true
+
+[node name="PhantomCamera2D" type="Node2D" parent="." index="5" node_paths=PackedStringArray("follow_target")]
+position = Vector2(172, 138)
+script = ExtResource("2_6w2n7")
+follow_mode = 1
+follow_target = NodePath("../Player")
+tween_resource = SubResource("Resource_86fge")
+draw_limits = true
+
+[node name="DirectionalLight2D" parent="." index="6"]
 metadata/_edit_lock_ = true

@@ -25,7 +25,7 @@ func _ready():
 	close()
 	update_slots()
 	
-func _process(delta):
+func _process(_delta):
 	if Input.is_action_just_pressed("inventory"):
 		if is_open:
 			close()
