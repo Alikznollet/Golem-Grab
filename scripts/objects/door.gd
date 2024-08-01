@@ -12,6 +12,10 @@ var player: Player
 func _ready():
 	button.visible = false
 	Globals.current_objective_amount = required_objective_amount
+	
+func _open():
+	opened = true
+	sprite.play()
 
 func _on_body_entered(body):
 	if body is Player:
@@ -34,4 +38,5 @@ func _process(_delta):
 	
 
 func _check_inventory():
-	pass
+	if player.inventory.ITEMS.size() == required_objective_amount:
+		_open()

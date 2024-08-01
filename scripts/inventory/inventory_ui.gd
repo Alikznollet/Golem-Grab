@@ -7,7 +7,9 @@ func update_slots():
 	var slots = $HBoxContainer.get_children()
 	for i in range(inventory.ITEMS.size()):
 		var item: InventoryItem = inventory.ITEMS[i]
-		slots[i].update(item)
+		# check if there's enough slots
+		if i < slots.size():
+			slots[i].update(item)
 		
 	
 func _ready():

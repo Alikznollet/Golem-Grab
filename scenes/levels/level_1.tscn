@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://lece37cxtmi"]
+[gd_scene load_steps=7 format=3 uid="uid://lece37cxtmi"]
 
 [ext_resource type="PackedScene" uid="uid://b2osdpyaa6kfp" path="res://scenes/levels/level.tscn" id="1_8oaij"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="2_6w2n7"]
 [ext_resource type="PackedScene" uid="uid://ujg4jtpr0ohi" path="res://scenes/items/item.tscn" id="2_apoi0"]
+[ext_resource type="PackedScene" uid="uid://d0ij7xcvlt2ud" path="res://scenes/objects/door.tscn" id="2_p1rr2"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="3_hviq7"]
 
 [sub_resource type="Resource" id="Resource_86fge"]
@@ -22,6 +23,14 @@ limit_bottom = 10000000
 
 [node name="TileMap" parent="." index="1"]
 layer_0/tile_data = PackedInt32Array(1179657, 65536, 0, 1179658, 65536, 0, 1179659, 65536, 0, 1179660, 65536, 0, 1179661, 65536, 0, 1179662, 65536, 0, 1179663, 65536, 0, 1179664, 65536, 0, 1179665, 65536, 0, 1179666, 65536, 0, 1179667, 65536, 0, 1179668, 65536, 0, 1179669, 65536, 0, 1179670, 65536, 0, 1179671, 65536, 0, 1179672, 65536, 0, 1179673, 65536, 0, 1179674, 65536, 0, 1179675, 65536, 0, 1179676, 65536, 0, 1179677, 65536, 0, 1179678, 65536, 0, 1179679, 65536, 0, 1179680, 65536, 0, 1179681, 65536, 0, 1179682, 65536, 0)
+
+[node name="Door" parent="Objects" index="0" instance=ExtResource("2_p1rr2")]
+position = Vector2(242, 132)
+required_objective_amount = 1
+
+[node name="Items" parent="." index="3"]
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
 
 [node name="BaseItem1" parent="Items" index="0" instance=ExtResource("2_apoi0")]
 position = Vector2(107, 107)
