@@ -1,18 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://lece37cxtmi"]
+[gd_scene load_steps=6 format=3 uid="uid://lece37cxtmi"]
 
 [ext_resource type="PackedScene" uid="uid://b2osdpyaa6kfp" path="res://scenes/levels/level.tscn" id="1_8oaij"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="2_6w2n7"]
 [ext_resource type="PackedScene" uid="uid://ujg4jtpr0ohi" path="res://scenes/items/item.tscn" id="2_apoi0"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="3_hviq7"]
-
-[sub_resource type="Gradient" id="Gradient_lbbbb"]
-offsets = PackedFloat32Array(1)
-colors = PackedColorArray(0.343563, 0.994127, 0.957815, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_0x4we"]
-gradient = SubResource("Gradient_lbbbb")
-width = 10
-height = 10
 
 [sub_resource type="Resource" id="Resource_86fge"]
 script = ExtResource("3_hviq7")
@@ -36,7 +27,6 @@ layer_0/tile_data = PackedInt32Array(1179657, 65536, 0, 1179658, 65536, 0, 11796
 position = Vector2(107, 107)
 item_name = "TEST4"
 item_id = 3
-item_texture = SubResource("GradientTexture2D_0x4we")
 
 [node name="Player" parent="." index="4"]
 position = Vector2(172, 138)

@@ -1,36 +1,20 @@
-extends Control
+extends CanvasLayer
 
 @export var inventory: InventoryComponent
-@onready var slots: Array = $NinePatchRect/GridContainer.get_children()
-
-var is_open = false
+@onready var UI_SLOT: PackedScene = preload("res://scenes/ui/inventory/inventory_ui_slot.tscn")
 
 func update_slots():
-	for i in range(slots.size()):
-		if i < inventory.ITEMS.size():
-			var item: InventoryItem = inventory.ITEMS[i]
-			slots[i].update(item)
-		else:
-			slots[i].update(null)
-
-func close():
-	visible = false
-	is_open = false
-	
-func open():
-	visible = true
-	is_open = true
+	var slots = $HBoxContainer.get_children()
+	for i in range(inventory.ITEMS.size()):
+		var item: InventoryItem = inventory.ITEMS[i]
+		slots[i].update(item)
+		
 	
 func _ready():
-	close()
-	update_slots()
+	var slot: TextureRect
+	for i in range(Globals.current_objective_amount):
+		slot = UI_SLOT.instantiate()
+		$HBoxContainer.add_child(slot)
 	
-func _process(_delta):
-	if Input.is_action_just_pressed("inventory"):
-		if is_open:
-			close()
-		else:
-			open()
-
 func _on_inventory_component_slot_changed():
 	update_slots()

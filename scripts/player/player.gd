@@ -18,9 +18,6 @@ class_name Player
 @onready var fall_gravity : float = ((-2.0 * jump_height) / (jump_time_to_descent * jump_time_to_descent)) * -1
 
 func _ready():
-	if Globals.inventory:
-		inventory.ITEMS = Globals.inventory
-		inventory.emit_signal("slot_changed")
 	Globals.respawn_position = global_position
 
 func _process(_delta):

@@ -1,12 +1,21 @@
-[gd_scene load_steps=6 format=3 uid="uid://q3fd1hukvba1"]
+[gd_scene load_steps=9 format=3 uid="uid://q3fd1hukvba1"]
 
 [ext_resource type="PackedScene" uid="uid://b2osdpyaa6kfp" path="res://scenes/levels/level.tscn" id="1_xoo7x"]
 [ext_resource type="PackedScene" uid="uid://d0ij7xcvlt2ud" path="res://scenes/objects/door.tscn" id="3_enbe8"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="3_qpj6w"]
 [ext_resource type="PackedScene" uid="uid://y6wcv223m5tw" path="res://scenes/objects/torch.tscn" id="4_5kqa8"]
 [ext_resource type="PackedScene" uid="uid://lece37cxtmi" path="res://scenes/levels/level_1.tscn" id="4_5tnkr"]
+[ext_resource type="Script" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="5_5t2hc"]
+[ext_resource type="PackedScene" uid="uid://ujg4jtpr0ohi" path="res://scenes/items/item.tscn" id="5_p22e4"]
+
+[sub_resource type="Resource" id="Resource_2gx3e"]
+script = ExtResource("5_5t2hc")
+duration = 1.0
+transition = 0
+ease = 2
 
 [node name="Tutorial" instance=ExtResource("1_xoo7x")]
+metadata/_edit_lock_ = true
 
 [node name="Camera2D" parent="." index="0"]
 position = Vector2(151, 94)
@@ -23,6 +32,7 @@ metadata/_edit_lock_ = true
 
 [node name="Door" parent="Objects" index="0" instance=ExtResource("3_enbe8")]
 position = Vector2(52, 132)
+required_objective_amount = 2
 next_level = ExtResource("4_5tnkr")
 
 [node name="Torch" parent="Objects" index="1" instance=ExtResource("4_5kqa8")]
@@ -39,8 +49,17 @@ position = Vector2(162, 140)
 
 [node name="Items" parent="." index="3"]
 position = Vector2(1, 2)
-metadata/_edit_group_ = true
 metadata/_edit_lock_ = true
+
+[node name="BaseItem" parent="Items" index="0" instance=ExtResource("5_p22e4")]
+position = Vector2(95, 65)
+item_color = Color(0.054902, 0.776471, 0.972549, 1)
+item_name = "Blue"
+
+[node name="BaseItem2" parent="Items" index="1" instance=ExtResource("5_p22e4")]
+position = Vector2(247, 55)
+item_color = Color(0.054902, 0.776471, 0.972549, 1)
+item_name = "Blue"
 
 [node name="Player" parent="." index="4"]
 position = Vector2(151, 138)
@@ -51,6 +70,7 @@ position = Vector2(151, 94)
 script = ExtResource("3_qpj6w")
 follow_mode = 2
 follow_target = NodePath("../Player")
+tween_resource = SubResource("Resource_2gx3e")
 dead_zone_height = 0.1
 draw_limits = true
 limit_left = -30

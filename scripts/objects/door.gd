@@ -1,6 +1,6 @@
 extends Node2D
 
-@export var required_item_ids: Array[int]
+@export var required_objective_amount: int
 @export var next_level: PackedScene
 
 @onready var button: Button = $Button
@@ -11,6 +11,7 @@ var player: Player
 
 func _ready():
 	button.visible = false
+	Globals.current_objective_amount = required_objective_amount
 
 func _on_body_entered(body):
 	if body is Player:
@@ -33,18 +34,4 @@ func _process(_delta):
 	
 
 func _check_inventory():
-	var correct_items: Array[InventoryItem] = []
-	for item in player.inventory.ITEMS:
-		if item.item_id in required_item_ids:
-			correct_items.append(item)
-		
-			
-	if correct_items.size() == required_item_ids.size():
-		for item in correct_items:
-			player.inventory.remove_item(item.item_id)
-			
-		player.inventory.emit_signal("slot_changed")
-		Globals.inventory = player.inventory.ITEMS
-		
-		sprite.play()
-		opened = true
+	pass

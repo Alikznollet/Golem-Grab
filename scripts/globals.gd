@@ -1,4 +1,4 @@
 extends Node
 
 var respawn_position: Vector2
-var inventory: Array[InventoryItem]
+var current_objective_amount: int
