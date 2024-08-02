@@ -34,7 +34,7 @@ func _process(_delta):
 		if !opened:
 			_check_inventory()
 		else:
-			get_tree().change_scene_to_packed(next_level)
+			SceneTransition.change_scene(next_level)
 	
 
 func _check_inventory():

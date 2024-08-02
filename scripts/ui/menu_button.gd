@@ -6,7 +6,13 @@ extends TextureButton
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$Label.text = text
+	
+	if texture_normal:
+		var image: Image = texture_normal.get_image()
+		var bitmap: BitMap = BitMap.new()
+		bitmap.create_from_image_alpha(image)
+		texture_click_mask = bitmap
 
 func _on_pressed():
 	if target_scene:
-		get_tree().change_scene_to_packed(target_scene)
+		SceneTransition.change_scene(target_scene)

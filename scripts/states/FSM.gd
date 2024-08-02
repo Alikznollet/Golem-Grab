@@ -16,7 +16,6 @@ func _ready():
 	
 # NOTE: This is really only used when respawning the player
 func force_set_state(new_state: String) -> void:
-	print(new_state)
 	var state: State = states[new_state.to_lower()]
 	if state:
 		state.Enter(current_state)
@@ -24,7 +23,6 @@ func force_set_state(new_state: String) -> void:
 		current_state = state
 	
 func switch_state(old_state: State, new_state: String) -> void:
-	print(new_state)
 	if old_state != current_state:
 		return
 		
