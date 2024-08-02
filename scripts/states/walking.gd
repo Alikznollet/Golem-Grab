@@ -1,6 +1,10 @@
 extends State
 class_name Walking
 
+func Enter(_state: State):
+	player.sprite.animation = "walk"
+	player.sprite.play()
+
 func Physics_Update(_delta: float):
 	var direction: int
 	if Input.is_action_pressed("left"):

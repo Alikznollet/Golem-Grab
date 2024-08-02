@@ -1,6 +1,9 @@
 extends State
 class_name Idle
 
+func Enter(_state: State):
+	player.sprite.animation = "empty"
+
 func Update(_delta: float) -> void:
 	if Input.is_action_pressed("left") or Input.is_action_pressed("right"):
 		Transition.emit(self, "walking")

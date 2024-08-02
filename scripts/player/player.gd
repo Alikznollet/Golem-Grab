@@ -2,6 +2,7 @@ extends CharacterBody2D
 class_name Player
 
 @export var inventory: InventoryComponent
+@export var sprite: AnimatedSprite2D
 
 @export var move_speed: float
 
@@ -22,6 +23,11 @@ func _ready():
 
 func _process(_delta):
 	move_and_slide()
+	
+	if velocity.x < 0:
+		sprite.flip_h = true
+	elif velocity.x > 0:
+		sprite.flip_h = false
 	
 func add_to_inventory(item: InventoryItem):
 	inventory.add_item(item)

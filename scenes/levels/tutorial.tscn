@@ -53,12 +53,12 @@ metadata/_edit_lock_ = true
 
 [node name="BaseItem" parent="Items" index="0" instance=ExtResource("5_p22e4")]
 position = Vector2(95, 65)
-item_color = Color(0.054902, 0.776471, 0.972549, 1)
+item_color = Color(0.627451, 0.164706, 0.215686, 1)
 item_name = "Blue"
 
 [node name="BaseItem2" parent="Items" index="1" instance=ExtResource("5_p22e4")]
 position = Vector2(247, 55)
-item_color = Color(0.054902, 0.776471, 0.972549, 1)
+item_color = Color(0.625491, 0.166185, 0.214798, 1)
 item_name = "Blue"
 
 [node name="Player" parent="." index="4"]
