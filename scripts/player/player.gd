@@ -31,7 +31,11 @@ func _process(_delta):
 	
 func add_to_inventory(item: InventoryItem):
 	inventory.add_item(item)
+	
+var player_respawning: bool = false
 
 func _on_detection_body_shape_entered(_body_rid, _body, _body_shape_index, _local_shape_index):
 	# TODO: respawn animation and mechanics refinement
-	global_position = Globals.respawn_position
+	if !player_respawning:
+		$FSM.force_set_state("respawning")
+	player_respawning = true

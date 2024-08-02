@@ -13,6 +13,10 @@ func _ready():
 func _on_body_entered(body):
 	if body is Player:
 		# TODO: add an animation when picking up an item
+		var tween: Tween = create_tween()
+		tween.tween_property($Sprite2D, "scale", Vector2(0, 0), 0.3)
+		tween.play()
+		await tween.finished
 		body.add_to_inventory(InventoryItem.new(item_name, item_id, item_texture, item_color))
-	
+		
 	queue_free()
