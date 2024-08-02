@@ -1,0 +1,36 @@
+[gd_scene load_steps=7 format=3 uid="uid://dhq6gwi1ppa8l"]
+
+[ext_resource type="Texture2D" uid="uid://b74a0avei7no0" path="res://graphics/UI/button_base.png" id="1_y37g5"]
+[ext_resource type="Texture2D" uid="uid://bma78rxp237ek" path="res://graphics/UI/button_pressed.png" id="2_mr0ic"]
+[ext_resource type="Texture2D" uid="uid://book4r31rjv8l" path="res://graphics/UI/button_hover.png" id="3_4rble"]
+[ext_resource type="Script" path="res://scripts/ui/menu_button.gd" id="4_sgst6"]
+[ext_resource type="FontFile" uid="uid://bd5c4kyqxdrl3" path="res://graphics/UI/Early GameBoy.ttf" id="5_3cn5o"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_uom0v"]
+font = ExtResource("5_3cn5o")
+font_size = 11
+shadow_color = Color(0, 0, 0, 1)
+
+[node name="MenuButton" type="TextureButton"]
+offset_right = 120.0
+offset_bottom = 20.0
+size_flags_horizontal = 4
+texture_normal = ExtResource("1_y37g5")
+texture_pressed = ExtResource("2_mr0ic")
+texture_hover = ExtResource("3_4rble")
+script = ExtResource("4_sgst6")
+
+[node name="Label" type="Label" parent="."]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Play"
+label_settings = SubResource("LabelSettings_uom0v")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]
