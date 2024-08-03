@@ -28,10 +28,23 @@ func _process(_delta):
 		sprite.flip_h = true
 	elif velocity.x > 0:
 		sprite.flip_h = false
+		
+## This function returns the direction the player is going and handles
+## any input that affects the velocity of the player
+func handle_input_velocity() -> int:
+	var direction: int
+	if Input.is_action_pressed("left"):
+		direction = -1
+	elif Input.is_action_pressed("right"):
+		direction = 1
+	else:
+		direction = 0
+	velocity.x = direction * move_speed
+	return direction
 	
 func add_to_inventory(item: InventoryItem):
 	inventory.add_item(item)
-	
+
 var player_respawning: bool = false
 
 func _on_detection_body_shape_entered(_body_rid, _body, _body_shape_index, _local_shape_index):

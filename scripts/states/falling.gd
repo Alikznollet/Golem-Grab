@@ -16,7 +16,8 @@ func Update(delta: float):
 	current_hover_time -= delta
 
 func Physics_Update(delta: float):
-	# Will make the player hover for specified duration in the air
+	player.handle_input_velocity()
+	# NOTE: this will make the player hover for a certain amount of time
 	if current_hover_time < 0:
 		player.velocity.y += player.fall_gravity * delta
 	
@@ -25,15 +26,6 @@ func Physics_Update(delta: float):
 		
 	if Input.is_action_pressed("jump") and current_coyote_time < 0:
 		current_jump_buffer_time = player.jump_buffer
-	
-	var direction: int
-	if Input.is_action_pressed("left"):
-		direction = -1
-	elif Input.is_action_pressed("right"):
-		direction = 1
-	else:
-		direction = 0
-	player.velocity.x = player.move_speed * direction
 	
 	if player.is_on_floor():
 		if current_jump_buffer_time > 0:

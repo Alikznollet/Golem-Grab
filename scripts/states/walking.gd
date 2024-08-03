@@ -6,13 +6,7 @@ func Enter(_state: State):
 	player.sprite.play()
 
 func Physics_Update(_delta: float):
-	var direction: int
-	if Input.is_action_pressed("left"):
-		direction = -1
-	elif Input.is_action_pressed("right"):
-		direction = 1
-	else:
-		direction = 0
+	var direction = player.handle_input_velocity()
 	
 	if not player.is_on_floor():
 		Transition.emit(self, "falling")
@@ -22,5 +16,3 @@ func Physics_Update(_delta: float):
 		
 	if direction == 0:
 		Transition.emit(self, "idle")
-		
-	player.velocity.x = player.move_speed * direction
