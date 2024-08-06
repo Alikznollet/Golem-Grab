@@ -1,6 +1,7 @@
-[gd_scene load_steps=15 format=3 uid="uid://d0ij7xcvlt2ud"]
+[gd_scene load_steps=16 format=3 uid="uid://d0ij7xcvlt2ud"]
 
 [ext_resource type="Script" path="res://scripts/objects/door.gd" id="1_y2ujj"]
+[ext_resource type="Script" path="res://scripts/components/interactible.gd" id="2_1fih7"]
 [ext_resource type="Texture2D" uid="uid://dgtlwtfo2xn00" path="res://graphics/objects/door.png" id="2_v6igu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8ri71"]
@@ -84,11 +85,14 @@ animations = [{
 "speed": 20.0
 }]
 
-[node name="Door" type="Area2D"]
-collision_layer = 4
+[node name="Door" type="Node2D"]
 script = ExtResource("1_y2ujj")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="Interactible" type="Area2D" parent="." node_paths=PackedStringArray("button_visual")]
+script = ExtResource("2_1fih7")
+button_visual = NodePath("../Button")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactible"]
 shape = SubResource("RectangleShape2D_8ri71")
 
 [node name="Button" type="Button" parent="."]
@@ -102,5 +106,6 @@ text = "E"
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_ollh0")
 
-[connection signal="body_entered" from="." to="." method="_on_body_entered"]
-[connection signal="body_exited" from="." to="." method="_on_body_exited"]
+[connection signal="body_entered" from="Interactible" to="Interactible" method="_on_body_entered"]
+[connection signal="body_exited" from="Interactible" to="Interactible" method="_on_body_exited"]
+[connection signal="interaction" from="Interactible" to="." method="_interaction"]
