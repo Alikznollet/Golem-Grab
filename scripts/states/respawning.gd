@@ -6,6 +6,7 @@ func Enter(_state: State):
 	
 	player.sprite.animation = "death"
 	player.sprite.play()
+	player.collisionshape.set_deferred("disabled", true)
 	await player.sprite.animation_finished
 	
 	var tween: Tween = create_tween()
@@ -14,6 +15,7 @@ func Enter(_state: State):
 	
 	player.sprite.animation = "respawn"
 	player.sprite.play()
+	player.collisionshape.set_deferred("disabled", false)
 	await player.sprite.animation_finished
 	
 	player.player_respawning = false

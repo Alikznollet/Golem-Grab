@@ -9,6 +9,7 @@ class_name Item
 
 func _ready():
 	$Sprite2D.modulate = item_color
+	$PointLight2D.color = item_color
 
 func _on_body_entered(body):
 	if body is Player:

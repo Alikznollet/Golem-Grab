@@ -171,11 +171,12 @@ radius = 5.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3i0eo"]
 size = Vector2(8, 13)
 
-[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("inventory", "sprite") groups=["Player"]]
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("inventory", "sprite", "collisionshape") groups=["Player"]]
 collision_mask = 15
 script = ExtResource("1_nsgui")
 inventory = NodePath("InventoryComponent")
 sprite = NodePath("AnimatedSprite2D")
+collisionshape = NodePath("CollisionShape2D")
 move_speed = 60.0
 coyote_time = 0.1
 jump_buffer = 0.1

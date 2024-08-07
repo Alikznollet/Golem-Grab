@@ -3,6 +3,7 @@ class_name Player
 
 @export var inventory: InventoryComponent
 @export var sprite: AnimatedSprite2D
+@export var collisionshape: CollisionShape2D
 
 @export var move_speed: float
 

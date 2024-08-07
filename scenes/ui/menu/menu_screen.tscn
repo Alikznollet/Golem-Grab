@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://bu3v7nawiwh3g"]
 
 [ext_resource type="PackedScene" uid="uid://dhq6gwi1ppa8l" path="res://scenes/ui/menu/menu_button.tscn" id="1_trwdp"]
-[ext_resource type="PackedScene" uid="uid://q3fd1hukvba1" path="res://scenes/levels/tutorial.tscn" id="2_lr3ur"]
+[ext_resource type="PackedScene" uid="uid://q3fd1hukvba1" path="res://scenes/levels/test_level.tscn" id="2_lr3ur"]
 [ext_resource type="PackedScene" uid="uid://xbbokj2u2h31" path="res://scenes/ui/menu/quit_game.tscn" id="3_jjw74"]
 
 [node name="MenuScreen" type="CanvasLayer"]
