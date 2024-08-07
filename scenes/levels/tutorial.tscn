@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://djv6yujwsoqqn"]
+[gd_scene load_steps=11 format=3 uid="uid://djv6yujwsoqqn"]
 
 [ext_resource type="PackedScene" uid="uid://b2osdpyaa6kfp" path="res://scenes/levels/level.tscn" id="1_xoo7x"]
 [ext_resource type="PackedScene" uid="uid://d0ij7xcvlt2ud" path="res://scenes/objects/door.tscn" id="3_enbe8"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="3_qpj6w"]
 [ext_resource type="PackedScene" uid="uid://lece37cxtmi" path="res://scenes/levels/level_1.tscn" id="4_5tnkr"]
 [ext_resource type="FontFile" uid="uid://bd5c4kyqxdrl3" path="res://graphics/UI/Early GameBoy.ttf" id="4_m5n4c"]
+[ext_resource type="PackedScene" uid="uid://ejqipm2b8h2k" path="res://scenes/objects/check_point.tscn" id="5_3ifh0"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="5_5t2hc"]
 [ext_resource type="PackedScene" uid="uid://ujg4jtpr0ohi" path="res://scenes/items/item.tscn" id="5_p22e4"]
 
@@ -22,7 +23,7 @@ ease = 2
 [node name="Tutorial" instance=ExtResource("1_xoo7x")]
 
 [node name="Camera2D" parent="." index="0"]
-position = Vector2(-8, 34)
+position = Vector2(-7, 32)
 limit_left = -10000000
 limit_top = -10000000
 limit_right = 10000000
@@ -61,16 +62,19 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Label3" type="Label" parent="Objects" index="3"]
-offset_left = 84.0
-offset_top = -176.0
-offset_right = 252.0
-offset_bottom = -127.0
+offset_left = 85.0
+offset_top = -177.0
+offset_right = 253.0
+offset_bottom = -128.0
 text = "you will always 
 respawn at the
  last checkpoint"
 label_settings = SubResource("LabelSettings_go85n")
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="CheckPoint" parent="Objects" index="4" instance=ExtResource("5_3ifh0")]
+position = Vector2(168, -134)
 
 [node name="Items" parent="." index="3"]
 position = Vector2(-5, 13)
@@ -86,10 +90,10 @@ position = Vector2(121, -212)
 item_color = Color(0.254146, 0.602953, 0.68299, 1)
 
 [node name="Player" parent="." index="4"]
-position = Vector2(-8, 34)
+position = Vector2(-7, 32)
 
 [node name="PhantomCamera2D" type="Node2D" parent="." index="6" node_paths=PackedStringArray("follow_target")]
-position = Vector2(-8, 34)
+position = Vector2(-7, 32)
 script = ExtResource("3_qpj6w")
 follow_mode = 1
 follow_target = NodePath("../Player")
