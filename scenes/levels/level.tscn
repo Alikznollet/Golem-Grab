@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://b2osdpyaa6kfp"]
+[gd_scene load_steps=11 format=3 uid="uid://b2osdpyaa6kfp"]
 
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="1_0bjly"]
 [ext_resource type="Texture2D" uid="uid://cn4qalfcgdce0" path="res://graphics/collidables.png" id="1_ue4mr"]
 [ext_resource type="Texture2D" uid="uid://mtv37b3quvom" path="res://graphics/decorations.png" id="2_s6y0w"]
 [ext_resource type="Texture2D" uid="uid://b4oxrbwrrt8so" path="res://graphics/background_tiles.png" id="3_0pt5d"]
 [ext_resource type="PackedScene" uid="uid://bk6553ygxicfx" path="res://scenes/player/player.tscn" id="5_36p23"]
+[ext_resource type="PackedScene" uid="uid://d0ipo3bncs8tf" path="res://scenes/ui/menu/pause_menu.tscn" id="6_toxd4"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4rlt3"]
 texture = ExtResource("1_ue4mr")
@@ -888,3 +889,5 @@ color = Color(1, 1, 1, 0.309804)
 energy = 1.09
 blend_mode = 1
 metadata/_edit_lock_ = true
+
+[node name="PauseMenu" parent="." instance=ExtResource("6_toxd4")]

@@ -34,7 +34,9 @@ func _process(_delta):
 ## any input that affects the velocity of the player
 func handle_input_velocity() -> int:
 	var direction: int
-	if Input.is_action_pressed("left"):
+	if Input.is_action_pressed("left") and Input.is_action_pressed("right"):
+		direction = 0
+	elif Input.is_action_pressed("left"):
 		direction = -1
 	elif Input.is_action_pressed("right"):
 		direction = 1

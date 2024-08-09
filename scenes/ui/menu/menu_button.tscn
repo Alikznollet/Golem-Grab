@@ -32,5 +32,3 @@ text = "Play"
 label_settings = SubResource("LabelSettings_uom0v")
 horizontal_alignment = 1
 vertical_alignment = 1
-
-[connection signal="pressed" from="." to="." method="_on_pressed"]
