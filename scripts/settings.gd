@@ -2,7 +2,7 @@ extends Node
 
 var fullscreen: bool
 var dimension_x: int
-var dimension_y: int
+var dimension_y: int 
 
 func _ready():
 	_load_config()
@@ -24,8 +24,6 @@ func _load_config():
 	else:
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
 		DisplayServer.window_set_size(Vector2i(dimension_x, dimension_y))
-		DisplayServer.window_set_position(Vector2i.ZERO)
-		DisplayServer.window_set_current_screen(0)
 		
 func save_settings():
 	if fullscreen:
@@ -33,8 +31,6 @@ func save_settings():
 	else:
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
 		DisplayServer.window_set_size(Vector2i(dimension_x, dimension_y))
-		DisplayServer.window_set_position(Vector2i.ZERO)
-		DisplayServer.window_set_current_screen(0)
 		
 	var config: ConfigFile = ConfigFile.new()
 	config.set_value("settings", "fullscreen", fullscreen)

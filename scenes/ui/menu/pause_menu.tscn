@@ -17,12 +17,8 @@ alignment = 1
 [node name="Play" parent="VBoxContainer" instance=ExtResource("2_wys8t")]
 layout_mode = 2
 
-[node name="Options" parent="VBoxContainer" instance=ExtResource("2_wys8t")]
-layout_mode = 2
-
 [node name="Save&Quit" parent="VBoxContainer" instance=ExtResource("2_wys8t")]
 layout_mode = 2
 
 [connection signal="pressed" from="VBoxContainer/Play" to="." method="_on_play_pressed"]
-[connection signal="pressed" from="VBoxContainer/Options" to="." method="_on_options_pressed"]
 [connection signal="pressed" from="VBoxContainer/Save&Quit" to="." method="_on_save_quit_pressed"]
