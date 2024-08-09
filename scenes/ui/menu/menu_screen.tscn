@@ -1,10 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://bu3v7nawiwh3g"]
+[gd_scene load_steps=6 format=3 uid="uid://bu3v7nawiwh3g"]
 
+[ext_resource type="Script" path="res://scenes/ui/menu/menu_screen.gd" id="1_hp06g"]
 [ext_resource type="PackedScene" uid="uid://dhq6gwi1ppa8l" path="res://scenes/ui/menu/menu_button.tscn" id="1_trwdp"]
-[ext_resource type="PackedScene" uid="uid://q3fd1hukvba1" path="res://scenes/levels/test_level.tscn" id="2_lr3ur"]
+[ext_resource type="PackedScene" uid="uid://djv6yujwsoqqn" path="res://scenes/levels/tutorial.tscn" id="2_jjt6x"]
 [ext_resource type="PackedScene" uid="uid://xbbokj2u2h31" path="res://scenes/ui/menu/quit_game.tscn" id="3_jjw74"]
+[ext_resource type="Texture2D" uid="uid://b6xsei5ip0cwf" path="res://graphics/background.png" id="5_pwi4p"]
 
 [node name="MenuScreen" type="CanvasLayer"]
+script = ExtResource("1_hp06g")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 anchors_preset = 15
@@ -18,7 +21,7 @@ alignment = 1
 [node name="Play" parent="VBoxContainer" instance=ExtResource("1_trwdp")]
 layout_mode = 2
 text = "play"
-target_scene = ExtResource("2_lr3ur")
+target_scene = ExtResource("2_jjt6x")
 
 [node name="Options" parent="VBoxContainer" instance=ExtResource("1_trwdp")]
 layout_mode = 2
@@ -28,3 +31,12 @@ text = "options"
 layout_mode = 2
 text = "quit"
 target_scene = ExtResource("3_jjw74")
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2(320, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+texture = ExtResource("5_pwi4p")
+centered = false

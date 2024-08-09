@@ -118,7 +118,8 @@ position = Vector2(-7, 32)
 [node name="PhantomCamera2D" type="Node2D" parent="." index="7" node_paths=PackedStringArray("follow_target")]
 position = Vector2(-7, 32)
 script = ExtResource("3_qpj6w")
-follow_mode = 1
+follow_mode = 2
 follow_target = NodePath("../Player")
 tween_resource = SubResource("Resource_vfkni")
+follow_damping_value = Vector2(0.2, 0.2)
 draw_limits = true

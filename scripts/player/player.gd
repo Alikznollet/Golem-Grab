@@ -40,7 +40,22 @@ func handle_input_velocity() -> int:
 		direction = 1
 	else:
 		direction = 0
-	velocity.x = direction * move_speed
+		
+	# normal walk speed on the ground
+	if is_on_floor():
+		velocity.x = direction * move_speed
+	else:
+		if direction == 1 and velocity.x <= 0:
+			velocity.x += 5
+		elif direction == 1 and velocity.x >= 0:
+			if abs(velocity.x) < move_speed:
+				velocity.x += 5
+		elif direction == -1 and velocity.x >= 0:
+			velocity.x -= 5
+		elif direction == -1 and velocity.x <= 0:
+			if abs(velocity.x) < move_speed:
+				velocity.x -= 5
+		
 	return direction
 	
 func add_to_inventory(item: InventoryItem):
