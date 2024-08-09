@@ -1,0 +1,38 @@
+[gd_scene load_steps=4 format=3 uid="uid://dy542qm2y6t5h"]
+
+[ext_resource type="Texture2D" uid="uid://b6xsei5ip0cwf" path="res://graphics/background.png" id="1_rrc2d"]
+[ext_resource type="Script" path="res://scripts/ui/settings_menu.gd" id="1_tiarw"]
+[ext_resource type="PackedScene" uid="uid://dhq6gwi1ppa8l" path="res://scenes/ui/menu/menu_button.tscn" id="2_2wfkh"]
+
+[node name="SettingsMenu" type="CanvasLayer"]
+script = ExtResource("1_tiarw")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Fullscreen" type="CheckButton" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 9
+text = "Fullscreen"
+alignment = 2
+
+[node name="Back" parent="VBoxContainer" instance=ExtResource("2_2wfkh")]
+layout_mode = 2
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2(320, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+texture = ExtResource("1_rrc2d")
+centered = false
+
+[connection signal="pressed" from="VBoxContainer/Fullscreen" to="." method="_on_fullscreen_pressed"]
+[connection signal="pressed" from="VBoxContainer/Back" to="." method="_on_back_pressed"]

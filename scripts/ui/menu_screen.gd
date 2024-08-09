@@ -8,7 +8,7 @@ func _on_play_pressed():
 	SceneTransition.change_scene(scene)
 
 func _on_options_pressed():
-	var scene: PackedScene = null
+	var scene: PackedScene = load("res://scenes/ui/menu/settings_menu.tscn")
 	SceneTransition.change_scene(scene)
 
 func _on_quit_pressed():
