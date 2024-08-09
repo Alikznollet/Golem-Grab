@@ -66,7 +66,6 @@ func add_to_inventory(item: InventoryItem):
 var player_respawning: bool = false
 
 func _on_detection_body_shape_entered(_body_rid, _body, _body_shape_index, _local_shape_index):
-	# TODO: respawn animation and mechanics refinement
 	if !player_respawning:
 		$FSM.force_set_state("respawning")
 	player_respawning = true

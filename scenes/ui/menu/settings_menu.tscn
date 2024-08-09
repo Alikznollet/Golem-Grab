@@ -1,8 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://dy542qm2y6t5h"]
+[gd_scene load_steps=5 format=3 uid="uid://dy542qm2y6t5h"]
 
 [ext_resource type="Texture2D" uid="uid://b6xsei5ip0cwf" path="res://graphics/background.png" id="1_rrc2d"]
 [ext_resource type="Script" path="res://scripts/ui/settings_menu.gd" id="1_tiarw"]
 [ext_resource type="PackedScene" uid="uid://dhq6gwi1ppa8l" path="res://scenes/ui/menu/menu_button.tscn" id="2_2wfkh"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_mhclx"]
+font_size = 9
 
 [node name="SettingsMenu" type="CanvasLayer"]
 script = ExtResource("1_tiarw")
@@ -22,6 +25,18 @@ theme_override_font_sizes/font_size = 9
 text = "Fullscreen"
 alignment = 2
 
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Resolution"
+label_settings = SubResource("LabelSettings_mhclx")
+
+[node name="OptionButton" type="OptionButton" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
 [node name="Back" parent="VBoxContainer" instance=ExtResource("2_2wfkh")]
 layout_mode = 2
 
@@ -35,4 +50,5 @@ texture = ExtResource("1_rrc2d")
 centered = false
 
 [connection signal="pressed" from="VBoxContainer/Fullscreen" to="." method="_on_fullscreen_pressed"]
+[connection signal="item_selected" from="VBoxContainer/HBoxContainer/OptionButton" to="." method="_on_option_button_item_selected"]
 [connection signal="pressed" from="VBoxContainer/Back" to="." method="_on_back_pressed"]
